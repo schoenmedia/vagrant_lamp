@@ -1,0 +1,38 @@
+---
+vm:
+    box: precise64
+    box_url: 'http://files.vagrantup.com/precise64.box'
+    network:
+        private_network: 33.33.33.10
+    synced_folder:
+        folder_1:
+            disabled: false
+            host: 
+            guest: /var/www
+            create: true
+            owner: vagrant
+            group: www-data
+            type: nfs
+        folder_2:
+            disabled: false
+            host: www2
+            guest: /var/www
+            create: true
+            owner: vagrant
+            group: www-data
+            type: nfs
+    provider:
+        virtualbox:
+            modifyvm:
+                natdnshostresolver1: 'on'
+                memory: '512'
+    provision:
+        puppet:
+            manifests_path: puppet/manifests/
+            manifest_file: default.pp
+            module_path: puppet/modules
+            options:
+                - '--verbose'
+                - '--hiera_config /vagrant/config/hiera.yaml'
+                - '--parser future' 
+                - '--debug'    
