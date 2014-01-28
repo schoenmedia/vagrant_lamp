@@ -1,0 +1,31 @@
+{
+  "name": "cmuench-n98magerun",
+  "version": "0.5.1",
+  "source": "git://github.com/cmuench/puppet-n98magerun",
+  "author": "Christian Münch",
+  "license": "MIT",
+  "summary": "n98-magerun Magento CLI Tool",
+  "description": "n98-magerun Magento CLI Tool",
+  "project_page": "http://github.com/cmuench/puppet-n98magerun",
+  "dependencies": [
+    {
+      "name": "puppetlabs/stdlib",
+      "version_requirement": ">= 2.2.1"
+    },
+    {
+      "name": "camptocamp/augeas",
+      "version_requirement": ">= 0.0.1"
+    }
+  ],
+  "types": [
+
+  ],
+  "checksums": {
+    "LICENSE": "0e5ccf641e613489e66aa98271dbe798",
+    "Modulefile": "e44224e50e8f44b6f1c3d3b597b672a1",
+    "README.md": "d9620e44cc4c5888e369ad908e14a114",
+    "manifests/init.pp": "326d2413355a3cf98ba852d802a2f055",
+    "manifests/install/params.pp": "a2e452fa28d427edacb296c43940d2cd",
+    "manifests/install.pp": "d0c30dac3efe9979d174f42b1a7d749b"
+  }
+}

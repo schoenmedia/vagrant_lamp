@@ -24,6 +24,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.box_url = "#{yml['vm']['box_url']}"
   end
 
+  # The hostname the machine should have. Defaults to nil. If nil, 
+  # Vagrant won't manage the hostname. If set to a string, the 
+  # hostname will be set on boot.
+    
+  if !yml['vm']['hostname'].nil?
+    config.vm.hostname =  "#{yml['vm']['hostname']}"
+  end
+
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
@@ -58,10 +66,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     end
       
     if complete
-      config.vm.synced_folder "#{dir['host']}" , "#{dir['guest']}" , disabled: "#{dir['disabled']}", create: "#{dir['create']}", owner: "#{dir['owner']}", group: "#{dir['group']}", type: "#{dir['type']}" 
+      config.vm.synced_folder "#{dir['host']}", "#{dir['guest']}" , disabled: dir['disabled'], create: dir['create'],  type: "#{dir['type']}" 
     end
   end
-
+  
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
   # Example for VirtualBox:
@@ -84,6 +92,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       end
     end
   end
+
+  config.vm.provision :shell, :path => "shell/upgrade-puppet.sh"
 
   # Enable provisioning with Puppet stand alone.  Puppet manifests
   # are contained in a directory path relative to this Vagrantfile.
@@ -112,6 +122,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       puppet.manifests_path = "#{yml['vm']['provision']['puppet']['manifests_path']}"
       puppet.manifest_file  = "#{yml['vm']['provision']['puppet']['manifest_file']}"
       puppet.module_path = "#{yml['vm']['provision']['puppet']['module_path']}"
+      puppet.options = yml['vm']['provision']['puppet']['options']
+      puppet.hiera_config_path = "puppet/hiera.yaml"
+      
+      
     end
   end
 
