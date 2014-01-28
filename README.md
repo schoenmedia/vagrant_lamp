@@ -1,7 +1,7 @@
 # vagrant_lamp
 work in progress … configure a vbox for development purpose. All puppet modules here supports only ubuntu.
-With the current configuration the vbox contains:
-
+With the current configuration the vbox contains:  
+- Ubuntu Precise 12.04
 - Apache/2.2.22
 - PHP 5.4.24-1+sury.org~precise+1 (ondrej/php5-oldstable)
 - MySQL 5.5.35-0ubuntu0.12.04.1
