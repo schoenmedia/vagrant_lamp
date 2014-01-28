@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# source: http://blog.doismellburning.co.uk/2013/01/19/upgrading-puppet-in-vagrant-boxes/
 apt-get install --yes lsb-release
 DISTRIB_CODENAME=$(lsb_release --codename --short)
 DEB="puppetlabs-release-${DISTRIB_CODENAME}.deb"
