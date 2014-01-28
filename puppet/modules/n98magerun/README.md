@@ -1,3 +1,4 @@
+source: http://forge.puppetlabs.com/cmuench/n98magerun
 # puppet module to use n98-magerun
 
 Currently work in progress...

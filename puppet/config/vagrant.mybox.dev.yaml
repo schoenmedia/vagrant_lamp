@@ -1,4 +1,3 @@
-magic_word: 'sebastian'
 classes:
     - admin
     - admin::curl

@@ -1,11 +1,5 @@
 
 node 'vagrant.mybox.dev' {
-	
-	$message = hiera('magic_word')
-	file {'/tmp/hello':
-		content =>"Hello, world ${message}\n",
-	}
-
 	$ppas = hiera('admin_ppas', [])
 	create_resources('admin::pparepo',$ppas)
 
