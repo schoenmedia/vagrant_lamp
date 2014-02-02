@@ -8,6 +8,7 @@ classes:
     - mysql::phpdriver
     - n98magerun
     - modman
+    - xdebug
 apache_vhosts:
     mybox.dev:
         domain: 'mybox.dev'
@@ -36,3 +37,10 @@ n98magerun:
     db_name: magento
     base_url: mybox.dev
     install_sample_data: true
+xdebug:
+    config:
+        xdebug_remote_enable: 1
+        xdebug_remote_host: 10.0.2.2
+        xdebug_remote_port: 9000
+        xdebug_remote_autostart: 0
+        xdebug_idekey: 'XDEBUG_macgdbp'

@@ -9,8 +9,11 @@ node 'vagrant.mybox.dev' {
 		php_ppa => $php_ppa,
 
 	}
-
+ 
 	class{"php::composer":}
+
+	$xdebug = hiera('xdebug', [])
+	create_resources('xdebug::config',$xdebug)
 
 	$vhosts = hiera('apache_vhosts', [])
 	create_resources('apache::vhost',$vhosts)
