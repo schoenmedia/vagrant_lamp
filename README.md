@@ -4,6 +4,7 @@ With the current configuration the vbox contains:
 - Ubuntu Precise 12.04
 - Apache/2.2.22
 - PHP 5.4.24-1+sury.org~precise+1 (ondrej/php5-oldstable)
+- xdebug 2.2.3
 - MySQL 5.5.35-0ubuntu0.12.04.1
 - n98magerun.phar with automatic installation of magento-ce-1.7.0.2 
 
@@ -22,5 +23,5 @@ And is also used for the puppet/manifests/node.pp
 
 don´t forget the --recursive to get the submodules also
 <code>
-git clone --recursive …
+git clone --recursive https://github.com/schoenmedia/vagrant_lamp.git
 </code>
