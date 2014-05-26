@@ -14,7 +14,7 @@ git clone --recursive https://github.com/schoenmedia/vagrant_lamp.git
 don´t forget the --recursive flag to get the submodules also
 
 2. Configure config/vagrant.yaml and puppet/config/<hostname>.yaml
-Al least the nfs_map_uid and apache_chown to get the nfs synced_folder work right.
+At least the nfs_map_uid and apache_chown to get the nfs synced_folder work right.
 
 3. configure on host: /etc/hosts:  
 192.168.2.2 mybox.dev
@@ -105,10 +105,10 @@ ppa definitions e.g for php the apt_key etc.
 **mysql_password**  
 set the mysql password to 'secret123'
 
-** mysql_dbs **  
+**mysql_dbs**  
 set up the magento db to user 'root' and password 'secret123'
 
-** n98magerun **
+**n98magerun**
 magento installation options e.g magento_version: magento-ce-1.7.0.2
 
 **xdbebug**
