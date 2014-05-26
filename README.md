@@ -16,7 +16,10 @@ don´t forget the --recursive flag to get the submodules also
 2. Start the box with vagrant up
 
 3. configure on host: /etc/hosts:  
-192.168.2.2 mybox.dev  
+192.168.2.2 mybox.dev
+
+4. Configure config/vagrant.yaml and puppet/config/<hostname>.yaml
+Al least the nfs_map_uid and apache_chown to get the nfs synced_folder work right.
 
 
 
