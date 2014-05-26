@@ -45,8 +45,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # set the mapall direction in /etc/exports on host system
   # important to sync user/group on host and guest when you use nfs for shared folder
-  config.nfs.map_uid = Process.uid # "#{yml['vm']['nfs_map_uid']}"
-  config.nfs.map_gid = Process.gid #{}"#{yml['vm']['nfs_map_gid']}"
+  config.nfs.map_uid = Process.uid 
+  config.nfs.map_gid = Process.gid 
 
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on

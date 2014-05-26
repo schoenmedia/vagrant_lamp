@@ -5,8 +5,6 @@ vm:
     hostname: vagrant.mybox.dev
     network:
         private_network: 192.168.2.2
-    nfs_map_uid: 505
-    nfs_map_gid: 1000
     synced_folder:
         folder_1:
             disabled: false

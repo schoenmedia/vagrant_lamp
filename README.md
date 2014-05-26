@@ -40,11 +40,17 @@ These configurations are for /Vagrantfile
     private_network: 192.168.2.2
 
 **synced_folder**  
-Due to speed optimization I enabled nfs synced folders. Therefore network mode is 'private_network'. As far as I know the user and group of the synced folder have to share the same uid on host and client, when you for example run the apache www on the synced folder. And apache have to run on the same user. So file operations do not fail because of permission issues. E.g. if it´s not set, in magento the files in /var/session/ have th wrong permission and you can´t log-in into the administration area.  
+Due to speed optimization I enabled nfs synced folders. Therefore network mode is 'private_network'. As far as I know the user and group of the synced folder have to share the same uid on host and client, when you for example run the apache www on the synced folder. And apache have to run on the same user. So file operations do not fail because of permission issues. E.g. if it´s not set, in magento the files in /var/session/ have the wrong permission and you can´t log-in into the administration area.
 
-    nfs_map_uid: 505  
-    nfs_map_gid: 1000  
-505 is the uid of my osx user. Later this user will be added to the box with this uid.
+ The nfs mapping is configured to the current process in 'Vagrantfile'
+
+    # set the mapall direction in /etc/exports on host system
+    # important to sync user/group on host and guest when you use nfs for  shared folder
+    config.nfs.map_uid = Process.uid
+    config.nfs.map_gid = Process.gid
+
+E.g. 505 is the uid of my osx user. Later this user will be added to the box with this uid. See **apache_chown** in puppet/config/<hostname>.yaml
+
 
     synced_folder:
         folder_1:
