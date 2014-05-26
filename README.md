@@ -34,6 +34,7 @@ These configurations are for /Vagrantfile
 
 
 **Network**  
+
     ## the hostname is also relevant as node in puppet/manifests/default.pp
     hostname: vagrant.mybox.dev  
     private_network: 192.168.2.2
