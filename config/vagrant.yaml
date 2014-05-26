@@ -4,29 +4,25 @@ vm:
     box_url: 'http://files.vagrantup.com/precise64.box'
     hostname: vagrant.mybox.dev
     network:
-        private_network: 33.33.33.10
+        private_network: 192.168.2.2
+    nfs_map_uid: 505
+    nfs_map_gid: 1000
     synced_folder:
         folder_1:
             disabled: false
             host: www/default
             guest: /var/www/default
             create: true
-            owner: vagrant
-            group: www-data
-            type: nfs
         folder_2:
             disabled: false
             host: www/mybox.dev
             guest: /var/www/mybox.dev
             create: true
-            owner: vagrant
-            group: www-data
-            type: nfs
     provider:
         virtualbox:
             modifyvm:
                 natdnshostresolver1: 'on'
-                memory: '512'
+                memory: '4096'
     provision:
         puppet:
             manifests_path: puppet/manifests/

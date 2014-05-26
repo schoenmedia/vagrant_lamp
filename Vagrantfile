@@ -43,6 +43,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.network :private_network, ip: "#{yml['vm']['network']['private_network']}"
   end
 
+  # set the mapall direction in /etc/exports on host system
+  # important to sync user/group on host and guest when you use nfs for shared folder
+  config.nfs.map_uid = Process.uid # "#{yml['vm']['nfs_map_uid']}"
+  config.nfs.map_gid = Process.gid #{}"#{yml['vm']['nfs_map_gid']}"
+
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
   # your network.
@@ -66,7 +71,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     end
       
     if complete
-      config.vm.synced_folder "#{dir['host']}", "#{dir['guest']}" , disabled: dir['disabled'], create: dir['create'],  type: "#{dir['type']}" 
+      config.vm.synced_folder "#{dir['host']}", "#{dir['guest']}" , disabled: dir['disabled'], create: dir['create'],  type: "nfs", :linux__nfs_options => ["no_root_squash"] 
     end
   end
   
@@ -120,7 +125,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   if !yml['vm']['provision']['puppet'].nil?
     config.vm.provision :puppet do |puppet|
       puppet.manifests_path = "#{yml['vm']['provision']['puppet']['manifests_path']}"
-      puppet.manifest_file  = "#{yml['vm']['provision']['puppet']['manifest_file']}"
+    #  puppet.manifest_file  = "#{yml['vm']['provision']['puppet']['manifest_file']}"
       puppet.module_path = "#{yml['vm']['provision']['puppet']['module_path']}"
       puppet.options = yml['vm']['provision']['puppet']['options']
       puppet.hiera_config_path = "puppet/hiera.yaml"

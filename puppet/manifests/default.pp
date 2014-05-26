@@ -1,3 +1,4 @@
+hiera_include('classes')
 
 node 'vagrant.mybox.dev' {
 	$ppas = hiera('admin_ppas', [])
@@ -11,6 +12,30 @@ node 'vagrant.mybox.dev' {
 	}
  
 	class{"php::composer":}
+
+	# create a group with a specific GID.
+	$apache_chown  = hiera('apache_chown')
+
+	$user = $apache_chown[0]['user']
+	$group = $apache_chown[0]['group']
+	$uid = $apache_chown[0]['uid']
+	$gid = $apache_chown[0]['gid']
+
+
+	class{"admin::user":
+		user => $user,
+		group => $group,
+		uid => $uid,
+		gid => $gid,
+	}
+
+
+	
+
+	class{"apache::chown":
+		user  => $user,
+		group => $group,
+	}
 
 	$xdebug = hiera('xdebug', [])
 	create_resources('xdebug::config',$xdebug)
