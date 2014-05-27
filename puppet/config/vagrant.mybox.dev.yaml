@@ -17,11 +17,6 @@ apache_vhosts:
 apache_modules:
     mod_rewrite:
         name: rewrite
-apache_chown:
-    - user: 'sebastian'
-      group: 'vagrant'
-      uid: 505
-      gid: 1000
 admin_ppas:
     ondrej/php5-oldstable:
         apt_key: E5267A6C

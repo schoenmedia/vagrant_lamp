@@ -49,7 +49,7 @@ Due to speed optimization I enabled nfs synced folders. Therefore network mode i
     config.nfs.map_uid = Process.uid
     config.nfs.map_gid = Process.gid
 
-E.g. 505 is the uid of my osx user. Later this user will be added to the box with this uid. See **apache_chown** in puppet/config/<hostname>.yaml
+E.g. 505 is the uid of my osx user. Later this uid will be added to the user 'www-data' used by apache
 
 
     synced_folder:
@@ -102,8 +102,6 @@ vhosts for apache
 **apache_modules**  
 apache modules to enable
 
-**apache_chown**  
-user, group, uid, gid change to match the nfs synced folder
 
 **admin_ppas**  
 ppa definitions e.g for php the apt_key etc.

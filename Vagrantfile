@@ -123,7 +123,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #   puppet.manifest_file  = "site.pp"
   # end
   if !yml['vm']['provision']['puppet'].nil?
-    config.vm.provision :puppet do |puppet|
+    config.vm.provision :puppet, :facter => { "host_uid" => config.nfs.map_uid, "host_gid" => config.nfs.map_gid, } do |puppet|
       puppet.manifests_path = "#{yml['vm']['provision']['puppet']['manifests_path']}"
     #  puppet.manifest_file  = "#{yml['vm']['provision']['puppet']['manifest_file']}"
       puppet.module_path = "#{yml['vm']['provision']['puppet']['module_path']}"
