@@ -13,7 +13,7 @@ With the current configuration the vbox contains:
 git clone --recursive https://github.com/schoenmedia/vagrant_lamp.git  
 don´t forget the --recursive flag to get the submodules also
 
-2. Configure config/vagrant.yaml and puppet/config/<hostname>.yaml
+2. Configure config/vagrant.yaml and puppet/config/[hostname].yaml
 
 3. configure on host: /etc/hosts:  
 192.168.2.2 mybox.dev
