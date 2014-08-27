@@ -71,7 +71,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     end
       
     if complete
-      config.vm.synced_folder "#{dir['host']}", "#{dir['guest']}" , disabled: dir['disabled'], create: dir['create'],  type: "nfs", :linux__nfs_options => ["no_root_squash"] 
+      config.vm.synced_folder "#{dir['host']}", "#{dir['guest']}" , disabled: dir['disabled'], create: dir['create'],  type: "nfs", :bsd__nfs_options => ["-maproot=root:wheel"]
     end
   end
   

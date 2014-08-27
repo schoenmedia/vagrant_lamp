@@ -12,7 +12,7 @@ classes:
 apache_vhosts:
     mybox.dev:
         domain: 'mybox.dev'
-    vhost2:
+    default:
         domain: 'second.box'
 apache_modules:
     mod_rewrite:
