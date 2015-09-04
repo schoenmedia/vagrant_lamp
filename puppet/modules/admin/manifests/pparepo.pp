@@ -11,7 +11,6 @@ define admin::pparepo (
  $deb = "deb http://ppa.launchpad.net/${name}/ubuntu precise main"
 
   exec { "${name}-add-apt-key":
-    
     command => "/usr/bin/apt-key adv --recv-keys --keyserver keyserver.ubuntu.com ${apt_key}",
     unless  => "/usr/bin/apt-key list | /bin/grep ${name}",
     notify  => Exec["${name}-apt-update"],

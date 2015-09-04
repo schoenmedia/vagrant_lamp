@@ -1,7 +1,6 @@
 classes:
     - admin
     - admin::curl
-    - apache
     - mysql
     - mysql::server
     - mysql::client
@@ -18,25 +17,41 @@ apache_modules:
     mod_rewrite:
         name: rewrite
 admin_ppas:
-    ondrej/php5-oldstable:
+    # same as admin_ppa_php:
+    #--------- php 5.4
+    #ondrej/php5-oldstable:
+    #--------- php 5.5
+    ondrej/php5: 
+    #--------- php 5.6
+    # ondrej/php5-5.6:
         apt_key: E5267A6C
         launchpad_id: 'ondrej'
         priority: 1001
-admin_ppa_php: ondrej/php5-oldstable
+    ondrej/apache2:
+        apt_key: E5267A6C
+        launchpad_id: 'ondrej'
+        priority: 1001
+
+#--------- php 5.4
+# admin_ppa_php: ondrej/php5-oldstable
+#--------- php 5.5
+admin_ppa_php: ondrej/php5
+#--------- php 5.6
+# admin_ppa_php: ondrej/php5-5.6
 mysql_password: secret123
 mysql_dbs:
     magento:
         user: root
         password: secret123
 n98magerun:
-    magento_version: magento-ce-1.7.0.2
+    magento_version: magento-ce-1.8.1.0
     installation_folder: /var/www/mybox.dev
     db_host: 127.0.0.1
     db_user: root
     db_pass: secret123
     db_name: magento
     base_url: mybox.dev
-    install_sample_data: true
+    install_sample_data: false
 xdebug:
     config:
         xdebug_remote_enable: 1

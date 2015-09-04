@@ -5,13 +5,19 @@ node 'vagrant.mybox.dev' {
 	create_resources('admin::pparepo',$ppas)
 
 	$php_ppa = hiera('admin_ppa_php')
+
+
+	class{"apache":
+		apache_ppa => 'ondrej/apache2',
+	}
+
 	
 	class{"php":
 		php_ppa => $php_ppa,
-
 	}
  
 	class{"php::composer":}
+	
 
 	## syncs the uid for the synced_folder because of nfs
 	user { "www-data":
@@ -36,6 +42,7 @@ node 'vagrant.mybox.dev' {
 	$n98magerun = hiera('n98magerun', [])
 	class {"n98magerun::install":
 		installation_folder => $n98magerun['installation_folder'],
+		magento_version => $n98magerun['magento_version'],
         db_host             => $n98magerun['db_host'],
         db_user             => $n98magerun['db_user'],
         db_pass             => $n98magerun['db_pass'],

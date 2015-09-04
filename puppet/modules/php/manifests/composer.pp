@@ -9,6 +9,7 @@ class php::composer {
     		creates => '/usr/local/bin/composer',
     		environment => 'COMPOSER_HOME=/root',
     		timeout => 0,
+    		require => Package ['php5'],
   	}
 
 

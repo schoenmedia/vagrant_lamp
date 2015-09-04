@@ -2,8 +2,8 @@
 work in progress … configure a vbox for development purpose. All puppet modules here supports only ubuntu.
 With the current configuration the vbox contains:  
 - Ubuntu Precise 12.04
-- Apache/2.2.22
-- PHP 5.4.24-1+sury.org~precise+1 (ondrej/php5-oldstable)
+- Apache/2.4.16
+- PPA ondrej/php5
 - xdebug 2.2.3
 - MySQL 5.5.35-0ubuntu0.12.04.1
 - n98magerun.phar with automatic installation of magento-ce-1.7.0.2

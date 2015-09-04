@@ -17,7 +17,7 @@ define apache::vhost($domain='UNSET', $root='UNSET') {
 
 	file { "/etc/apache2/sites-available/${vhost_domain}.conf":
 		content => template('apache/vhost.erb'),
-		require	=> Package['apache2-mpm-prefork'],
+		require	=> Package['apache2'],
 		notify	=> Exec["enable-${vhost_domain}-vhost"],
 	}
 

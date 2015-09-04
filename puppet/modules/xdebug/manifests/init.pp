@@ -4,7 +4,7 @@ class xdebug{
 
 	package { 'php5-xdebug':
 		ensure => installed,
-		require => Package['php5-cli'],
+		require => Package['php5-cli','php5'],
 	}
 
 }
