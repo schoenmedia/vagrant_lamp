@@ -18,7 +18,7 @@ classes:
 apache_vhosts:
     vhost_1:
         domain: 'myproject.dev'
-        docroot: '/var/www/myproject.dev'
+        docroot: '/var/www/myproject'
     vhost_2:
         domain: 'second.box'
         docroot: '/var/www/default'
