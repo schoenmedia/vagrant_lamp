@@ -1,7 +1,7 @@
 # vagrant_lamp
 work in progress … configure a vbox for development purpose. All puppet modules here supports only ubuntu.
 With the current configuration the vbox contains:  
-- Ubuntu Precise 12.04
+- UBUNTU 14.04 LTS (Trusty Tahr)
 - Apache/2.4.16
 - PPA ondrej/php5
 - xdebug 2.2.3
