@@ -1,6 +1,6 @@
 # apache/manifests/vhost.pp
 
-define apache::vhost($domain='UNSET', $root='UNSET') {
+define apache::vhost($domain='UNSET', $docroot='UNSET') {
 	include apache
 
 	if $domain == 'UNSET' {
@@ -9,10 +9,10 @@ define apache::vhost($domain='UNSET', $root='UNSET') {
 		$vhost_domain = $domain
 	}
 
-	if $root == 'UNSET' {  
+	if $docroot == 'UNSET' {  
 		$vhost_root = "/var/www/${name}"
 	} else {
-		$vhost_root = $root
+		$vhost_root = $docroot
 	}
 
 	file { "/etc/apache2/sites-available/${vhost_domain}.conf":

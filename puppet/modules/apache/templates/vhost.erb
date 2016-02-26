@@ -1,8 +1,8 @@
 <VirtualHost *:80>
 	ServerName <%= @vhost_domain %>
 	DocumentRoot <%= @vhost_root %>
-	ErrorLog /var/log/apache2/<%= @vhost_domain %>-error_log
-	CustomLog /var/log/apache2/<%= @vhost_domain %>-access_log common
+	ErrorLog /var/www/logs/<%= @vhost_domain %>-error_log
+	CustomLog /var/www/logs/<%= @vhost_domain %>-access_log common
 
 	<Directory <%= @vhost_root %>>
 		Allow from Allow

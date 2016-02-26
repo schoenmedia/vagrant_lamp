@@ -35,4 +35,12 @@ class php($php_ppa) {
 		
 	}
 
+	# Ensure Mcrypt is enabled
+	exec { "enablemcrypt":
+	  path => [ "/bin/", "/sbin/" , "/usr/bin/", "/usr/sbin/" ],
+	  command => "php5enmod mcrypt",
+	  notify => Service["apache2"],
+	  require => Package["php5-cli"],
+	}
+
 }

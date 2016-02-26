@@ -1,10 +1,10 @@
 ---
 vm:
-    box: precise64
-    box_url: 'http://files.vagrantup.com/precise64.box'
+    box: ubuntu/trusty64
+    box_url: 'https://atlas.hashicorp.com/ubuntu/boxes/trusty64'
     hostname: vagrant.mybox.dev
     network:
-        private_network: 192.168.2.2
+        private_network: 192.168.2.160
     synced_folder:
         folder_1:
             disabled: false
@@ -13,8 +13,13 @@ vm:
             create: true
         folder_2:
             disabled: false
-            host: www/mybox.dev
-            guest: /var/www/mybox.dev
+            host: www/myproject
+            guest: /var/www/myproject
+            create: true
+        folder_3:
+            disabled: false
+            host: www/logs
+            guest: /var/www/logs
             create: true
     provider:
         virtualbox:

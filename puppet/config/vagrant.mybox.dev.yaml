@@ -8,14 +8,37 @@ classes:
     - n98magerun
     - modman
     - xdebug
+
+
+####
+#
+# APACHE vHost 
+#
+####
 apache_vhosts:
-    mybox.dev:
-        domain: 'mybox.dev'
-    default:
+    vhost_1:
+        domain: 'myproject.dev'
+        docroot: '/var/www/myproject.dev'
+    vhost_2:
         domain: 'second.box'
+        docroot: '/var/www/default'
+
+
+####
+#
+# APACHE modules 
+#
+####
 apache_modules:
     mod_rewrite:
         name: rewrite
+
+
+####
+#
+# PHP versions 
+#
+####
 admin_ppas:
     # same as admin_ppa_php:
     #--------- php 5.4
@@ -38,19 +61,32 @@ admin_ppas:
 admin_ppa_php: ondrej/php5
 #--------- php 5.6
 # admin_ppa_php: ondrej/php5-5.6
+
+
+####
+#
+# MySql  
+#
+####
 mysql_password: secret123
 mysql_dbs:
     magento:
         user: root
         password: secret123
+
+####
+#
+# N98-magerun 
+#
+####
 n98magerun:
-    magento_version: magento-ce-1.8.1.0
-    installation_folder: /var/www/mybox.dev
+    magento_version: magento-mirror-1.9.1.1
+    installation_folder: /var/www/myproject
     db_host: 127.0.0.1
     db_user: root
     db_pass: secret123
     db_name: magento
-    base_url: mybox.dev
+    base_url: myproject.dev
     install_sample_data: false
 xdebug:
     config:

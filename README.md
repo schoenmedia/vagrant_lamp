@@ -6,7 +6,7 @@ With the current configuration the vbox contains:
 - PPA ondrej/php5
 - xdebug 2.2.3
 - MySQL 5.5.35-0ubuntu0.12.04.1
-- n98magerun.phar with automatic installation of magento-ce-1.7.0.2
+- n98magerun.phar with automatic installation of magento-ce-1.9.1.1
 
 ## Installation
 1. Download  
@@ -16,7 +16,7 @@ don´t forget the --recursive flag to get the submodules also
 2. Configure config/vagrant.yaml and puppet/config/[hostname].yaml
 
 3. configure on host: /etc/hosts:  
-192.168.2.2 mybox.dev
+192.168.2.160 myproject.dev
 
 4. Start the box with vagrant up
 
@@ -28,15 +28,15 @@ These configurations are for /Vagrantfile
 
 **The box**  
 
-    box: precise64  
-    box_url: http://files.vagrantup.com/precise64.box'
+    box: ubuntu/trusty64 
+    box_url: https://atlas.hashicorp.com/ubuntu/boxes/trusty64
 
 
 **Network**  
 
     ## the hostname is also relevant as node in puppet/manifests/default.pp
     hostname: vagrant.mybox.dev  
-    private_network: 192.168.2.2
+    private_network: 192.168.2.160
 
 **synced_folder**  
 Due to speed optimization I enabled nfs synced folders. Therefore network mode is 'private_network'. As far as I know the user and group of the synced folder have to share the same uid on host and client, when you for example run the apache www on the synced folder. And apache have to run on the same user. So file operations do not fail because of permission issues. E.g. if it´s not set, in magento the files in /var/session/ have the wrong permission and you can´t log-in into the administration area.
