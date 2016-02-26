@@ -10,8 +10,7 @@ With the current configuration the vbox contains:
 
 ## Installation
 1. Download  
-git clone --recursive https://github.com/schoenmedia/vagrant_lamp.git  
-don´t forget the --recursive flag to get the submodules also
+git clone https://github.com/schoenmedia/vagrant_lamp.git  
 
 2. Configure config/vagrant.yaml and puppet/config/[hostname].yaml
 
